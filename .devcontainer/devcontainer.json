@@ -1,0 +1,45 @@
+{
+  "name": "Solid.js with Bun, SCSS & Wrangler",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "cloudflare.cloudflare-workers-vscode",
+        "astro-build.solid-js",
+        "sissel.shopify-liquid",
+        "stylelint.vscode-stylelint",
+        "syler.sass-indented"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "files.associations": {
+          "*.css": "scss"
+        }
+      }
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/bun:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-contrib/features/wrangler:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "postCreateCommand": "bun add -g sass stylelint stylelint-config-standard && bun install",
+
+  "forwardPorts": [3000, 8787, 24678],
+
+  "remoteUser": "node",
+
+  "mounts": [
+    "source=${localEnv:HOME}/.bun,target=/home/node/.bun,type=bind"
+  ]
+}
