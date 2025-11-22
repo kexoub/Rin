@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          run: |
+           npm install --save-dev wrangler@4
 
       - name: Clone Rin repository
         uses: actions/checkout@v4
@@ -53,6 +55,5 @@ jobs:
           RSS_DESCRIPTION: ${{ vars.RSS_DESCRIPTION }}
         run: |
           cd Rin/
-          npm install --save-dev wrangler@4
           bun install --frozen-lockfile
           bun scripts/migrator.ts
