@@ -51,6 +51,7 @@ jobs:
           RSS_TITLE: ${{ vars.RSS_TITLE }}
           RSS_DESCRIPTION: ${{ vars.RSS_DESCRIPTION }}
         run: |
+          npm install --save-dev wrangler@4
           cd Rin/
           bun install --frozen-lockfile
           bun scripts/migrator.ts
