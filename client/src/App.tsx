@@ -23,7 +23,6 @@ import { tryInt } from './utils/int'
 import { SearchPage } from './page/search.tsx'
 import { Tips, TipsPage } from './components/tips.tsx'
 import { useTranslation } from 'react-i18next'
-import { AdsterraAd } from './AdsterraAd';
 
 function App() {
   const ref = useRef(false)
@@ -170,7 +169,6 @@ function App() {
   )
 }
 
-// 在App.tsx中的RouteMe组件内添加
 function RouteMe({ path, children, headerComponent, paddingClassName }:
   { path: PathPattern, children: React.ReactNode | ((params: DefaultParams) => React.ReactNode), headerComponent?: React.ReactNode, paddingClassName?: string }) {
   return (
@@ -183,10 +181,6 @@ function RouteMe({ path, children, headerComponent, paddingClassName }:
           <Padding className={paddingClassName}>
             {typeof children === 'function' ? children(params) : children}
           </Padding>
-          {/* 在Footer之前添加广告 */}
-          <div style={{ margin: '20px auto', textAlign: 'center' }}>
-            <AdsterraAd adKey="cc66f230e5d50912c3cdc452b3abe61f" />
-          </div>
           <Footer />
         </>)
       }}
